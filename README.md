@@ -20,6 +20,43 @@ MorePlay 是一个面向 Docker 与 NAS 场景的影视源多协议桥接服务�
 - 提供 Web 管理台，用于管理输入源、媒体服务、播放设置、日志与运行状态。
 - 支持 `amd64` 与 `arm64` Docker 环境。
 
+## 界面预览
+
+<p align="center">
+  <img src="docs/screenshots/dashboard-overview.webp" alt="MorePlay 管理台概览" width="100%">
+</p>
+
+<p align="center">
+  <sub>管理台概览</sub>
+</p>
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/sites-management.webp" alt="MorePlay 站源管理" width="100%">
+      <br>
+      <sub>站源管理</sub>
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/services-management.webp" alt="MorePlay 媒体服务" width="100%">
+      <br>
+      <sub>媒体服务</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/emby-management.webp" alt="MorePlay Emby 管理" width="100%">
+      <br>
+      <sub>Emby 兼容服务</sub>
+    </td>
+    <td width="50%" align="center">
+      <img src="docs/screenshots/strm-management.webp" alt="MorePlay STRM 媒体库" width="100%">
+      <br>
+      <sub>STRM 媒体库</sub>
+    </td>
+  </tr>
+</table>
+
 ## 快速部署
 
 ### Docker 镜像
