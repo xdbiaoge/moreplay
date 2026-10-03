@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/logo-moreplay.png" alt="MorePlay Logo" width="180">
+</p>
+
 # MorePlay
 
 MorePlay 是一个面向 Docker 与 NAS 场景的影视源多协议桥接服务。
