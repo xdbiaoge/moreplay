@@ -135,29 +135,6 @@ http://<服务器地址>:2333/bridge
 
 首次进入管理台后，可继续配置猫源、影视仓 / TVBox 输入源以及各媒体服务。
 
-## 从源码构建 Docker 镜像
-
-```bash
-git clone https://github.com/xdbiaoge/moreplay.git
-cd moreplay
-
-docker build -t moreplay .
-```
-
-构建完成后可使用：
-
-```bash
-docker run -d \
-  --name moreplay \
-  --restart unless-stopped \
-  -p 2333:2333 \
-  -e CATPAW_SETTINGS_PASSWORD=请替换为自己的管理密码 \
-  -v moreplay-data:/data \
-  -v moreplay-source:/source \
-  -v moreplay-strm:/strm \
-  moreplay
-```
-
 ## 数据目录
 
 MorePlay 将运行数据与 STRM 媒体目录分开保存。
