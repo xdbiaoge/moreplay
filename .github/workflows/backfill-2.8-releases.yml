@@ -1,0 +1,76 @@
+name: Backfill MorePlay Releases 2.8.x
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/backfill-2.8-releases.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create 2.8.0 and 2.8.1 releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cat > /tmp/2.8.0.md <<'EOF'
+          ## 更新说明
+
+          1. 新增 STRM 服务器订阅功能。
+          2. 修复 STRM 订阅后猫源可能搜索不到相应资源的问题。
+          3. STRM 订阅和手动入库支持自定义输出文件夹。
+          4. 修复猫源备用域名未启用导致站源被识别为失效的问题。
+          5. 统一部分页面的 UI 风格。
+          6. 尝试兼容更多采集站的直连播放。
+          7. 优化 STRM 起播和线路选择速度，减少无效探测。
+          8. 完善活动日志和播放诊断，补充 STRM 视频下载失败原因。
+          9. 站点全局重新扫描增加实时进度显示。
+          10. Emby 预热支持自动清理旧数据，并预热首页封面。
+
+          ## 使用与升级
+
+          - 对应 Docker 镜像：`mobai1231/catpawopen-fw:2.8.0`。
+          - 升级前备份配置和媒体目录，重新创建容器时保留原 `/data`、`/strm` 挂载；本地猫源也需保留对应文件。
+          EOF
+
+          cat > /tmp/2.8.1.md <<'EOF'
+          ## 更新说明
+
+          1. 修复夸克原画播放失败
+          2. 修复猫源设置可能保存失败
+          3. 修复重启容器 Emby 可能一直没数据
+
+          ## 使用与升级
+
+          - 对应 Docker 镜像：`mobai1231/catpawopen-fw:2.8.1`。
+          - 升级前备份配置和媒体目录，重新创建容器时保留原 `/data`、`/strm` 挂载；本地猫源也需保留对应文件。
+          EOF
+
+          create_release() {
+            local tag="$1"
+            local name="$2"
+            local body_file="$3"
+
+            if gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${tag}" >/dev/null 2>&1; then
+              echo "${tag} release already exists; skipping"
+              return
+            fi
+
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/releases" \
+              --raw-field "tag_name=${tag}" \
+              --raw-field "target_commitish=main" \
+              --raw-field "name=${name}" \
+              --raw-field "body=$(cat "${body_file}")" \
+              -F draft=false \
+              -F prerelease=false
+          }
+
+          create_release "v2.8.0" "MorePlay 2.8.0" "/tmp/2.8.0.md"
+          create_release "v2.8.1" "MorePlay 2.8.1" "/tmp/2.8.1.md"
