@@ -1,0 +1,27 @@
+name: Normalize MorePlay 2.8 Tags
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/normalize-2.8-tags.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Point public tags at clean docs commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_SHA: "81e6a569505dd1aed84de7597043cbd02637fc55"
+        shell: bash
+        run: |
+          set -euo pipefail
+          for tag in v2.8.0 v2.8.1; do
+            gh api --method PATCH "repos/${GITHUB_REPOSITORY}/git/refs/tags/${tag}" \
+              --raw-field "sha=${TARGET_SHA}" \
+              -F force=true >/dev/null
+          done
