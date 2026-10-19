@@ -12,7 +12,9 @@ MorePlay 是一个面向 Docker 与 NAS 场景的影视源多协议桥接服务�
 
 本项目为闭源软件。本仓库用于提供使用文档、界面预览和用户更新说明，程序通过 Docker 镜像分发。
 
-本文按正式版本 **2.8.1** 介绍。可先阅读 [快速部署](#快速部署)、[首次使用](#首次使用) 和 [常见问题](#常见问题)；各版本更新日志见 [Releases](https://github.com/xdbiaoge/moreplay/releases)。
+本文按推荐普通用户使用的 **2.8.3** 版本介绍。可先阅读 [快速部署](#快速部署)、[首次使用](#首次使用) 和 [常见问题](#常见问题)；各版本更新日志见 [Releases](https://github.com/xdbiaoge/moreplay/releases)。
+
+> **2.9 使用提醒：本版本改动较大，普通用户暂时请勿更新。** 尝鲜需手动指定镜像 `mobai1231/catpawopen-fw:2.9`，并在升级前完整备份数据；如有问题，请使用升级前备份回退到 **2.8.3**。本次更新内容见 [2.9 更新日志](https://github.com/xdbiaoge/moreplay/releases/tag/v2.9.0)。
 
 ## 主要功能
 
@@ -73,7 +75,7 @@ MorePlay 是一个面向 Docker 与 NAS 场景的影视源多协议桥接服务�
 mobai1231/catpawopen-fw:latest
 ```
 
-当前正式版本为 `2.8.1`。如需固定版本，可使用 `mobai1231/catpawopen-fw:2.8.1`；也可以将 `latest` 替换为其它已发布版本标签。
+普通用户建议使用 `2.8.3`。如需固定版本，可使用 `mobai1231/catpawopen-fw:2.8.3`；也可以将 `latest` 替换为其它已发布版本标签。
 
 ### NAS 最简部署
 
