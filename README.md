@@ -12,17 +12,13 @@ MorePlay 是一个面向 Docker 与 NAS 场景的影视源多协议桥接服务�
 
 本项目为闭源软件。本仓库用于提供使用文档、界面预览和用户更新说明，程序通过 Docker 镜像分发。
 
-本文按 **2.9.1** 版本介绍。可先阅读 [快速部署](#快速部署)、[首次使用](#首次使用) 和 [常见问题](#常见问题)；各版本更新日志见 [Releases](https://github.com/xdbiaoge/moreplay/releases)。
+本文按 **2.9.2** 版本介绍。可先阅读 [快速部署](#快速部署)、[首次使用](#首次使用) 和 [常见问题](#常见问题)；各版本更新日志见 [Releases](https://github.com/xdbiaoge/moreplay/releases)。
 
-## 2.9.1 更新日志
+## 2.9.2 更新日志
 
-1. Rex 模块支持猫源分类和跳转播放器内置 TMDB 详情页，无需配置 TMDB。
-2. 修复 Emby 服务器头像未正确显示的问题。
-3. Emby 支持音轨切换（猫源需提供真实音轨数据）。
-4. Emby 支持字幕选择（猫源需提供真实字幕数据）。
-5. 修复 Rex／Forward 的 Emby 部分请求缺少“站源＋线路名”的问题。
+1. 修复有些站源封面海报缺失。
 
-Docker Hub 同步提供 `mobai1231/catpawopen-fw:2.9.1` 和 `latest`，支持 `amd64`、`arm64`。本次发布说明见 [2.9.1 更新日志](https://github.com/xdbiaoge/moreplay/releases/tag/v2.9.1)。
+Docker Hub 同步提供 `mobai1231/catpawopen-fw:2.9.2` 和 `latest`，支持 `amd64`、`arm64`。本次发布说明见 [2.9.2 更新日志](https://github.com/xdbiaoge/moreplay/releases/tag/v2.9.2)。
 
 ## 主要功能
 
@@ -83,7 +79,7 @@ Docker Hub 同步提供 `mobai1231/catpawopen-fw:2.9.1` 和 `latest`，支持 `a
 mobai1231/catpawopen-fw:latest
 ```
 
-如需固定当前版本，可使用 `mobai1231/catpawopen-fw:2.9.1`；也可以将 `latest` 替换为其它已发布版本标签。
+如需固定当前版本，可使用 `mobai1231/catpawopen-fw:2.9.2`；也可以将 `latest` 替换为其它已发布版本标签。
 
 ### NAS 最简部署
 
