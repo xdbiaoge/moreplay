@@ -1,0 +1,75 @@
+name: "🐛 Bug 反馈"
+description: "报告 MorePlay 的功能异常、兼容性问题或运行错误"
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量提供复现信息，提交前务必删除日志、截图和地址中的 Cookie、Token、密码、私人猫源认证信息及其他敏感数据。
+        涉及安全漏洞或敏感凭据时，请不要在公开 Issue 中发布细节。
+  - type: input
+    id: version
+    attributes:
+      label: "MorePlay 版本"
+      description: "填写容器中显示的版本或 Docker 镜像标签"
+      placeholder: "例如：2.9.3 / latest"
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: "涉及模块"
+      options:
+        - "Web 管理台"
+        - "猫源加载 / 站源管理"
+        - "Forward / Rex"
+        - "Emby"
+        - "STRM"
+        - "T4 / TVBox"
+        - "Docker 部署 / 更新"
+        - "其他"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "问题描述"
+      description: "发生了什么？实际结果与预期结果分别是什么？"
+      placeholder: "请描述问题、预期行为及影响范围"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "复现步骤"
+      placeholder: |
+        1. 使用……配置
+        2. 打开……页面
+        3. 点击……
+        4. 出现……
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: "运行环境"
+      description: "可选。NAS / Linux / Windows、CPU 架构、Docker 版本、使用的播放器等"
+      placeholder: "例如：NAS，linux/amd64，Docker Compose，VidHub"
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: "脱敏日志 / 截图"
+      description: "可选。仅提供相关部分，提交前移除密码、Cookie、Token、个人地址和其他敏感信息"
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: "提交前检查"
+      options:
+        - label: "我已确认没有在反馈中公开 Cookie、密码、Token 或其他敏感信息"
+          required: true
